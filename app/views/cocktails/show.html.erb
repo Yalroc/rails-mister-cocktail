@@ -1,4 +1,15 @@
-<h1>My Cocktail</h1>
+<h1>Thy Cocktail</h1>
 <p>*********************</p>
-<p><%= @cocktail.name %></p>
+<h2><%= @cocktail.name %></h2>
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li>
+      <%= dose.description + ", " + dose.ingredient.name %>
+      <%= link_to "Delete a Recipe", cocktail_dose_path(@cocktail, dose), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Add a Recipe", new_cocktail_dose_path(@cocktail) %>
 <p>*********************</p>
+<%= link_to "Back to Cocktails", cocktails_path %>
+
