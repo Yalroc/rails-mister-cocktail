@@ -2,6 +2,7 @@
 <p><%= "*" * 35 %></p>
 <%  @cocktails.each do |cocktail| %>
   <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+  <%= cl_image_tag cocktail.photo, height: 100, width: 100, crop: :fill %>
   <ul>
     <% cocktail.ingredients.each do |ingredient| %>
       <li>
@@ -16,3 +17,4 @@
   <p>*********************</p>
 <% end %>
 <%= link_to "Add Cocktail", new_cocktail_path %>
+
