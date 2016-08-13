@@ -1,20 +1,39 @@
-<h1>List of Cocktails</h1>
-<p><%= "*" * 35 %></p>
-<%  @cocktails.each do |cocktail| %>
-  <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-    <%= cl_image_tag cocktail.photo, height: 100, width: 100, crop: :fill %>
-  <ul>
-    <% cocktail.ingredients.each do |ingredient| %>
-      <li>
-        <%= ingredient.name + ", " %>
-        <% cocktail.doses.each do |dose| %>
-          <%= dose.description %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to "Add a Recipe", new_cocktail_dose_path(cocktail) %>
-  <p>*********************</p>
-<% end %>
-<%= link_to "Add Cocktail", new_cocktail_path %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://wallpaperscraft.com/image/cocktails_summer_mood_fruit_71163_3840x2160.jpg');">
+  <div class="banner-content">
+    <h1>Papa G's Cocktails</h1>
+    <p>Write down all your favorite cocktail recipes!</p>
+    <a href="#cocktails" class="banner-wagon-button btn btn-primary btn-lg">LET'S GO</a>
+  </div>
+</div>
 
+<a id="cocktails"></a>
+
+<div class="container">
+<h1 class="text-center">List of Cocktails</h1>
+  <div class="row">
+    <%  @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://wallpaperscraft.com/image/cocktails_summer_mood_fruit_71163_3840x2160.jpg');">
+        <div class="card-category">Cocktail</div>
+          <div class="card-description">
+            <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+            <ul>
+              <% cocktail.ingredients.each do |ingredient| %>
+                <li>
+                  <%= ingredient.name + ", " %>
+                  <% cocktail.doses.each do |dose| %>
+                    <%= dose.description %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <%= cl_image_tag cocktail.photo, crop: :fill, class: "card-user avatar" %>
+        <a class="card-link" href='<%= cocktail_path(cocktail) %>'></a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Add Cocktail", new_cocktail_path, class: "btn btn-primary btn-lg" %>
