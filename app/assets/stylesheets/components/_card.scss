@@ -9,6 +9,16 @@
 .card-large {
   height: 350px;
 }
+.card-large-bottom-left {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 3px;
+}
+.card-large-bottom-left a {
+  text-decoration: none;
+  color: white;
+  }
 .card-user {
   position: absolute;
   right: 10px;
