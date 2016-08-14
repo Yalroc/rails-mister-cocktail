@@ -1,7 +1,16 @@
-<%= simple_form_for([ @cocktail ]) do |form| %>
-  <%= form.input :name %>
-  <%= form.input :photo %>
-  <%= form.input :photo_cache, as: :hidden %>
-  <%= form.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <col-xs-12 class="col-sm-7 col-sm-offset-2">
+      <h2 class="padded-15px">Add a new cocktail, yeaaaaah!</h2>
+      <%= simple_form_for([ @cocktail ]) do |form| %>
+        <%= form.input :name %>
+        <%= form.input :photo %>
+        <%= form.input :photo_cache, as: :hidden %>
+        <%= form.button :submit, class: "btn-primary padded-15px margin-15px" %>
+      <% end %>
+    </col-xs-12>
+  </div>
+</div>
+
+
 

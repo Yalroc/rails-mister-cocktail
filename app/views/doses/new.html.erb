@@ -1,5 +1,12 @@
-<%= simple_form_for([ @cocktail, @dose ]) do |form| %>
-  <%= form.input :description %>
-  <%= form.input :ingredient, collection: Ingredient.all %>
-  <%= form.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <col-xs-12 class="col-sm-7 col-sm-offset-2">
+      <h2 class="padded-15px"><%= "Add a recipe to #{@cocktail.name}" %></h2>
+      <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
+        <%= form.input :ingredient, collection: Ingredient.all, placeholder: "pick from the list" %>
+        <%= form.input :description, placeholder: "2cl, 3 spoons, 5 cubes,..." %>
+        <%= form.button :submit, class: "btn-primary padded-15px margin-15px" %>
+      <% end %>
+    </col-xs-12>
+  </div>
+</div>

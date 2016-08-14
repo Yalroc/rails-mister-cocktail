@@ -6,6 +6,9 @@
   position: relative;
   margin-top: 30px;
 }
+.card-large {
+  height: 350px;
+}
 .card-user {
   position: absolute;
   right: 10px;
@@ -22,9 +25,12 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  font-size: 13px;
 }
-.card-description h2 {
+.card-description h2 > a {
   font-size: 24px;
+  text-decoration: none;
+  color: white;
 }
 .card-description p {
   font-size: 13px;
@@ -41,3 +47,4 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
